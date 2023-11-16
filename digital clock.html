@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body{
+            background-color: #2d2d2d;
+        }
+        #wrapper{
+            font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu-Sans", "Helvetica Neue", Arial, Sans-serif;
+            text-align: left;
+            width: 50%;
+            margin: 40px auto;
+            border-left:3px solid red ;
+            padding: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="date"></div>
+        <div id="time"></div>
+    </div>
+    <script>
+       function updateClock(){
+        var now= new Date();
+
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        if(hours>12){
+            hours=hours-12;
+        }
+        
+        var month = now.toLocaleString('default',{month:'long'});
+
+        var time = hours + ":" + addZeroPadding(minutes) + ":" + addZeroPadding(seconds);
+        var date = month + " " + now.getDate() + ", " + now.getFullYear();
+
+        document.getElementById("date").innerText=date;
+        document.getElementById("time").innerText=time;
+
+        setTimeout(updateClock ,1);
+       }
+       //it is for decide whether the num should have 0 in it 
+       function addZeroPadding(num) {
+        return(num<10 ? '0' : '') + num;
+       }
+       updateClock();
+    </script>
+</body>
+</html>

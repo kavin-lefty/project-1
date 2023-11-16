@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="start">start</button>
+    <div>
+        <span class="first-text">coding is</span>
+        <span class="sec-text">everything</span>
+    </div>
+    <script>
+        const start= document.getElementById("start");
+        start.addEventListener("click",() =>{
+            textLoad();
+        });
+        const text=document.querySelector(".sec-text");
+
+        const textLoad=() =>{
+            setTimeout(() => {
+                text.textContent="everything";
+            }, 0);
+            setTimeout(() => {
+                text.textContent="fun";
+            }, 2000);
+            setTimeout(() => {
+                text.textContent="hard";
+            }, 4000);
+            setTimeout(() => {
+                text.textContent="job";
+            }, 6000);
+            setTimeout(() => {
+                text.textContent="fucking hell";
+            }, 8000);
+        };
+        // textLoad();
+        setInterval(textload,2000 );
+    </script>
+</body>
+</html>
